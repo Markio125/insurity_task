@@ -9,3 +9,14 @@ ModelTraining - In this folder, I have worked on a mock dataset (information reg
 CreditScorePredictor and ModelServer - The trained model is being hosted locally using FastAPI and CreditScoreUpdated uses this API to make predictions for the rows present in the TelematicsCreditScore database in an hourly basis. This updated values are stored in the credit_score table in the database and is updated on an hourly basis.
 
 API_Endpoints - Another FastAPI server to which the Frontend makes API requests to access information stored in the credit_score table when it is required by a user visiting the site.
+
+Running procedure:
+
+For Backend: In Terminal 1
+cd Backend/API_Endpoints
+python site_backend_server.py
+
+For Frontend: In Terminal 2
+cd Frontend
+npm install
+npm run dev

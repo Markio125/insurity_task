@@ -65,7 +65,7 @@ def get_prediction_from_server(df_row: pd.DataFrame):
 
 class CreditScoreUpdater:
     def __init__(self):
-        self.user_id_list = list(range(10001, 10001+9318))
+        self.user_id_list = list(range(10001, 90001))
         self.db_path = "TelematicsCreditScore.db"
         self.data_table = "telematics_data"
         self.credit_table = "credit_score"

@@ -6,8 +6,11 @@ function UserSearch({ onSearch, loading }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     const id = parseInt(userId)
-    if (id && id >= 10001) {
+    if (id && id >= 10001 && id <= 20000) {
       onSearch(id)
+    }
+    else{
+
     }
   }
 
@@ -41,7 +44,7 @@ function UserSearch({ onSearch, loading }) {
           <div className="flex gap-2">
             <button
               type="submit"
-              disabled={loading || !userId || parseInt(userId) < 10001}
+              disabled={loading || !userId || parseInt(userId) < 10001 || parseInt(userId) > 20000}
               className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
             >
               {loading ? (

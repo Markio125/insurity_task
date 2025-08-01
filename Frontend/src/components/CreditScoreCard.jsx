@@ -13,7 +13,7 @@ function CreditScoreCard({ userData }) {
     const scoreStatus = getCreditScoreStatus(credit_score)
 
     // Calculate credit score percentage for progress bar
-    const scorePercentage = Math.min((credit_score / 850) * 100, 100)
+    const scorePercentage = Math.min(((credit_score - 50) / 850) * 100, 100)
 
     return (
         <div className="bg-white rounded-lg shadow-md p-6">
@@ -29,7 +29,7 @@ function CreditScoreCard({ userData }) {
             <div className="text-center mb-6">
                 <div className="relative inline-block">
                     <div className="text-5xl font-bold text-gray-900 mb-2">
-                        {Math.round(credit_score)}
+                        {Math.round(credit_score - 50)}
                     </div>
                     <div className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${scoreStatus.color} ${scoreStatus.bgColor} ${scoreStatus.borderColor} border`}>
                         {scoreStatus.status}

@@ -1,4 +1,7 @@
 function TelematicsCard({ telematicsData }) {
+    // Debug: Log the telematics data to console
+    console.log('TelematicsCard received data:', telematicsData)
+
     const {
         'Insured.age': age,
         'Insured.sex': sex,
@@ -17,6 +20,7 @@ function TelematicsCard({ telematicsData }) {
         'Brake.08miles': brake08,
         'Brake.14miles': brake14
     } = telematicsData
+
 
     // Calculate risk score based on driving behavior
     const calculateRiskScore = () => {
@@ -67,19 +71,19 @@ function TelematicsCard({ telematicsData }) {
                 <div className="grid grid-cols-2 gap-4">
                     <div className="flex justify-between">
                         <span className="text-gray-600">Age:</span>
-                        <span className="font-medium">{age} years</span>
+                        <span className="font-medium text-gray-500">{age} years</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">Gender:</span>
-                        <span className="font-medium">{sex}</span>
+                        <span className="font-medium text-gray-500">{sex}</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">Marital Status:</span>
-                        <span className="font-medium">{marital}</span>
+                        <span className="font-medium text-gray-500">{marital}</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">Region:</span>
-                        <span className="font-medium">{region}</span>
+                        <span className="font-medium text-gray-500">{region}</span>
                     </div>
                 </div>
             </div>
@@ -90,19 +94,19 @@ function TelematicsCard({ telematicsData }) {
                 <div className="grid grid-cols-2 gap-4">
                     <div className="flex justify-between">
                         <span className="text-gray-600">Car Age:</span>
-                        <span className="font-medium">{carAge >= 0 ? `${carAge} years` : 'New'}</span>
+                        <span className="font-medium text-gray-500">{carAge >= 0 ? `${carAge} years` : 'New'}</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">Usage:</span>
-                        <span className="font-medium">{carUse}</span>
+                        <span className="font-medium text-gray-500">{carUse}</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">Annual Miles:</span>
-                        <span className="font-medium">{Math.round(annualMiles).toLocaleString()}</span>
+                        <span className="font-medium text-gray-500">{Math.round(annualMiles).toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between">
                         <span className="text-gray-600">Years No Claims:</span>
-                        <span className="font-medium">{yearsNoClaims}</span>
+                        <span className="font-medium text-gray-500">{yearsNoClaims}</span>
                     </div>
                 </div>
             </div>
@@ -182,7 +186,7 @@ function TelematicsCard({ telematicsData }) {
                 <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
                         className={`h-2 rounded-full transition-all duration-500 ${riskScore <= 30 ? 'bg-green-500' :
-                                riskScore <= 60 ? 'bg-yellow-500' : 'bg-red-500'
+                            riskScore <= 60 ? 'bg-yellow-500' : 'bg-red-500'
                             }`}
                         style={{ width: `${riskScore}%` }}
                     ></div>

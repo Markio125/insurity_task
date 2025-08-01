@@ -1,9 +1,25 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import sqlite3
 
 db_path = "../CreditScorePredictor/TelematicsCreditScore.db"
 app = FastAPI()
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",  # Vite dev server default port
+        "http://localhost:3000",  # React dev server alternative port
+        "http://127.0.0.1:5173",  # Alternative localhost
+        "http://127.0.0.1:3000",  # Alternative localhost
+        "*"  # Allow all origins for development (remove in production)
+    ],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
+)
 @app.get("/")
 def read_root():
     return {"message": "API Endpoint Server is Active"}
